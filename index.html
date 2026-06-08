@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nando Breure — Rigger & Banksman | Offshore Wind & Maritiem</title>
+  <meta name="description" content="Freelance Rigger & Medior Banksman. 8+ jaar ervaring in offshore wind, heavy lifting en maritieme logistiek. Standplaats Goes, NL. Beschikbaar voor opdrachten.">
+  <meta property="og:title" content="Nando Breure — Rigger & Banksman">
+  <meta property="og:description" content="Freelance Rigger & Medior Banksman. Offshore Wind · Heavy Lifting · Maritime Logistics. Goes, NL.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Saira+Condensed:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #05090F;
+      --bg-surface: #0C1626;
+      --bg-elevated: #111D30;
+      --line: rgba(143, 163, 188, 0.18);
+      --line-strong: rgba(143, 163, 188, 0.32);
+      --text-muted: #8FA3BC;
+      --text-primary: #EAF1FA;
+      --accent: #36E0CE;
+      --accent-dim: rgba(54, 224, 206, 0.12);
+      --accent-glow: rgba(54, 224, 206, 0.35);
+      --amber: #FFB23E;
+      --font-display: 'Saira Condensed', sans-serif;
+      --font-body: 'IBM Plex Sans', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --nav-height: 4rem;
+      --section-gap: clamp(5rem, 12vw, 8rem);
+      --container: min(72rem, calc(100% - 2.5rem));
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+    body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text-primary);
+      background: var(--bg-deep);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    .skip-link {
+      position: absolute; top: -100%; left: 1rem; z-index: 9999;
+      padding: 0.75rem 1.25rem; background: var(--accent); color: var(--bg-deep);
+      font-weight: 600; text-decoration: none; border-radius: 2px;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .bg-scene {
+      position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(ellipse 120% 80% at 50% 100%, rgba(17, 45, 68, 0.55) 0%, transparent 55%),
+        radial-gradient(ellipse 80% 50% at 80% 20%, rgba(54, 224, 206, 0.04) 0%, transparent 50%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-surface) 45%, var(--bg-deep) 100%);
+    }
+
+    .bg-grain {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.04;
+    }
+
+    .bg-horizon {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: -1;
+      height: clamp(8rem, 18vw, 14rem); pointer-events: none; opacity: 0.07;
+    }
+
+    .container { width: var(--container); margin-inline: auto; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-height);
+      display: flex; align-items: center;
+      transition: background 0.4s var(--ease-out), border-color 0.4s, backdrop-filter 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav.scrolled {
+      background: rgba(5, 9, 15, 0.72);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom-color: var(--line);
+    }
+    .nav__inner {
+      width: var(--container); margin-inline: auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo {
+      font-family: var(--font-display);
+      font-weight: 800; font-size: 1.125rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-primary); text-decoration: none;
+    }
+    .nav__logo span { color: var(--accent); }
+    .nav__links {
+      display: none; list-style: none; gap: 2rem;
+    }
+    .nav__links a {
+      font-family: var(--font-mono);
+      font-size: 0.6875rem; letter-spacing: 0.14em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--text-muted); transition: color 0.25s;
+    }
+    .nav__links a:hover, .nav__links a:focus-visible { color: var(--accent); }
+    .nav__toggle {
+      background: none; border: 1px solid var(--line); color: var(--text-primary);
+      width: 2.5rem; height: 2.5rem; cursor: pointer; border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav__mobile {
+      display: none; position: fixed; top: var(--nav-height); left: 0; right: 0;
+      background: rgba(5, 9, 15, 0.95); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line); padding: 1.5rem;
+    }
+    .nav__mobile.open { display: block; }
+    .nav__mobile a {
+      display: block; padding: 0.75rem 0;
+      font-family: var(--font-mono); font-size: 0.75rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none;
+    }
+    @media (min-width: 768px) {
+      .nav__links { display: flex; }
+      .nav__toggle { display: none; }
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 0.875rem 1.75rem;
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; border-radius: 2px; cursor: pointer;
+      transition: transform 0.3s var(--ease-out), box-shadow 0.3s, background 0.3s, border-color 0.3s;
+      border: 1px solid transparent;
+    }
+    .btn--primary {
+      background: var(--accent); color: var(--bg-deep);
+    }
+    .btn--primary:hover, .btn--primary:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--accent-glow);
+    }
+    .btn--ghost {
+      background: transparent; color: var(--text-primary);
+      border-color: var(--line-strong);
+    }
+    .btn--ghost:hover, .btn--ghost:focus-visible {
+      border-color: var(--accent); color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh; padding-top: calc(var(--nav-height) + 3rem);
+      padding-bottom: 4rem; display: flex; align-items: center;
+    }
+    .hero__grid {
+      display: grid; gap: 3rem; align-items: center;
+    }
+    @media (min-width: 960px) {
+      .hero__grid { grid-template-columns: 1fr auto; gap: 4rem; }
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.625rem;
+    }
+    .eyebrow__dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+      box-shadow: 0 0 8px var(--accent-glow);
+      animation: pulse-dot 2.5s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    .hero__name {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      font-weight: 800; letter-spacing: 0.04em;
+      text-transform: uppercase; line-height: 0.95;
+      margin-bottom: 0.75rem;
+    }
+    .hero__role {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .hero__tagline {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 2.5rem;
+    }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem; }
+
+    .hero__reveal { opacity: 0; transform: translateY(24px); animation: hero-in 0.8s var(--ease-out) forwards; }
+    .hero__reveal:nth-child(1) { animation-delay: 0.1s; }
+    .hero__reveal:nth-child(2) { animation-delay: 0.2s; }
+    .hero__reveal:nth-child(3) { animation-delay: 0.3s; }
+    .hero__reveal:nth-child(4) { animation-delay: 0.4s; }
+    .hero__reveal:nth-child(5) { animation-delay: 0.5s; }
+    .hero__reveal:nth-child(6) { animation-delay: 0.6s; }
+    @keyframes hero-in { to { opacity: 1; transform: translateY(0); } }
+
+    /* Photo frame */
+    .photo-frame {
+      position: relative; width: clamp(240px, 32vw, 320px);
+      aspect-ratio: 4 / 5; margin-inline: auto;
+      opacity: 0; animation: hero-in 0.9s var(--ease-out) 0.35s forwards;
+    }
+    .photo-frame__bracket {
+      position: absolute; width: 24px; height: 24px;
+      border-color: var(--accent); border-style: solid; opacity: 0.7;
+    }
+    .photo-frame__bracket--tl { top: -8px; left: -8px; border-width: 2px 0 0 2px; }
+    .photo-frame__bracket--tr { top: -8px; right: -8px; border-width: 2px 2px 0 0; }
+    .photo-frame__bracket--bl { bottom: -8px; left: -8px; border-width: 0 0 2px 2px; }
+    .photo-frame__bracket--br { bottom: -8px; right: -8px; border-width: 0 2px 2px 0; }
+    .photo-frame__inner {
+      width: 100%; height: 100%; overflow: hidden;
+      border: 1px solid var(--line-strong);
+      position: relative;
+    }
+    .photo-frame__placeholder {
+      display: block; width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* Stats strip */
+    .stats {
+      display: grid; gap: 1px;
+      background: var(--line); border: 1px solid var(--line);
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 640px) { .stats { grid-template-columns: repeat(3, 1fr); } }
+    .stats__item {
+      background: rgba(12, 22, 38, 0.6); padding: 1.25rem 1.5rem;
+      text-align: center;
+    }
+    .stats__value {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1rem; letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 0.25rem;
+    }
+    .stats__label {
+      font-family: var(--font-mono); font-size: 0.625rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding-block: var(--section-gap); }
+    section + section { border-top: 1px solid var(--line); }
+
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* About */
+    .about__grid {
+      display: grid; gap: 3rem;
+    }
+    @media (min-width: 960px) {
+      .about__grid { grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: start; }
+    }
+    .about__text p + p { margin-top: 1.25rem; color: var(--text-muted); }
+    .card {
+      background: rgba(12, 22, 38, 0.5);
+      border: 1px solid var(--line);
+      padding: 2rem; border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s, border-color 0.35s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(54, 224, 206, 0.25);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(54, 224, 206, 0.08);
+    }
+    .card__title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1rem; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+      padding-bottom: 1rem; border-bottom: 1px solid var(--line);
+    }
+    .card__list { list-style: none; }
+    .card__list li {
+      display: flex; flex-direction: column; gap: 0.15rem;
+      padding: 0.875rem 0; border-bottom: 1px solid var(--line);
+      font-size: 0.9375rem;
+    }
+    .card__list li:last-child { border-bottom: none; }
+    .card__list-label {
+      font-family: var(--font-mono); font-size: 0.625rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .card__list a { color: var(--accent); text-decoration: none; }
+    .card__list a:hover { text-decoration: underline; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px;
+      width: 1px; background: var(--line-strong);
+    }
+    .timeline__item {
+      position: relative; padding-bottom: 3rem;
+    }
+    .timeline__item:last-child { padding-bottom: 0; }
+    .timeline__node {
+      position: absolute; left: -2rem; top: 6px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--bg-deep); border: 2px solid var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+    .timeline__period {
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .timeline__title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1.25rem; letter-spacing: 0.06em;
+      text-transform: uppercase; margin-bottom: 0.25rem;
+    }
+    .timeline__org { color: var(--text-muted); font-size: 0.9375rem; margin-bottom: 1rem; }
+    .timeline__bullets { list-style: none; }
+    .timeline__bullets li {
+      position: relative; padding-left: 1.25rem;
+      color: var(--text-muted); font-size: 0.9375rem; margin-bottom: 0.5rem;
+    }
+    .timeline__bullets li::before {
+      content: '—'; position: absolute; left: 0; color: var(--line-strong);
+    }
+
+    /* Skills */
+    .skills__grid {
+      display: grid; gap: 2rem;
+    }
+    @media (min-width: 768px) { .skills__grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+    .skills__group-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 1rem; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .skills__group-title svg { flex-shrink: 0; color: var(--accent); }
+    .skills__tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .skill-tag {
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.5rem 0.875rem;
+      border: 1px solid var(--line); border-radius: 2px;
+      color: var(--text-muted); background: rgba(12, 22, 38, 0.4);
+      transition: border-color 0.25s, color 0.25s;
+    }
+    .skill-tag:hover { border-color: var(--accent-dim); color: var(--text-primary); }
+
+    /* Certificates */
+    .certs__intro {
+      color: var(--text-muted); margin-bottom: 2rem; max-width: 40rem;
+    }
+    .certs__grid {
+      display: grid; gap: 1.25rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    .cert-card {
+      border: 2px dashed var(--line-strong);
+      padding: 2rem 1.5rem; text-align: center;
+      background: rgba(12, 22, 38, 0.3); border-radius: 2px;
+      transition: transform 0.35s var(--ease-out), border-color 0.35s;
+    }
+    .cert-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(54, 224, 206, 0.3);
+    }
+    .cert-card__name {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: 0.9375rem; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .cert-card__placeholder {
+      font-family: var(--font-mono); font-size: 0.625rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-top: 0.5rem;
+    }
+
+    /* Education & Languages */
+    .edu-lang__grid {
+      display: grid; gap: 3rem;
+    }
+    @media (min-width: 768px) { .edu-lang__grid { grid-template-columns: 1fr 1fr; } }
+    .edu-item {
+      padding: 1.25rem 0; border-bottom: 1px solid var(--line);
+    }
+    .edu-item:last-child { border-bottom: none; }
+    .edu-item__school {
+      font-weight: 600; margin-bottom: 0.25rem;
+    }
+    .edu-item__detail {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      letter-spacing: 0.1em; color: var(--text-muted);
+    }
+    .lang-item { margin-bottom: 1.5rem; }
+    .lang-item:last-child { margin-bottom: 0; }
+    .lang-item__header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+    .lang-item__name { font-weight: 500; }
+    .lang-item__level {
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      letter-spacing: 0.12em; color: var(--text-muted);
+    }
+    .lang-bar {
+      height: 4px; background: var(--line); border-radius: 2px; overflow: hidden;
+    }
+    .lang-bar__fill {
+      height: 100%; background: linear-gradient(90deg, var(--accent), rgba(54, 224, 206, 0.6));
+      border-radius: 2px; width: 0;
+      transition: width 1.2s var(--ease-out);
+    }
+    .lang-bar__fill.animate { width: var(--pct); }
+
+    /* Contact */
+    .contact__grid {
+      display: grid; gap: 3rem;
+    }
+    @media (min-width: 960px) {
+      .contact__grid { grid-template-columns: 1fr 1.2fr; gap: 4rem; }
+    }
+    .contact-cards { display: grid; gap: 1rem; }
+    .contact-card {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--line); border-radius: 2px;
+      background: rgba(12, 22, 38, 0.4);
+      text-decoration: none; color: inherit;
+      transition: transform 0.3s var(--ease-out), border-color 0.3s, box-shadow 0.3s;
+    }
+    .contact-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(54, 224, 206, 0.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    }
+    .contact-card svg { flex-shrink: 0; color: var(--accent); }
+    .contact-card__label {
+      font-family: var(--font-mono); font-size: 0.625rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.15rem;
+    }
+    .contact-card__value { font-size: 0.9375rem; }
+    .contact__ref {
+      margin-top: 1.5rem; font-size: 0.875rem;
+      color: var(--text-muted); font-style: italic;
+    }
+
+    /* Form */
+    .form { display: grid; gap: 1.25rem; }
+    .form__group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form__label {
+      font-family: var(--font-mono); font-size: 0.625rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form__input, .form__textarea {
+      background: rgba(5, 9, 15, 0.6);
+      border: 1px solid var(--line);
+      color: var(--text-primary);
+      padding: 0.875rem 1rem;
+      font-family: var(--font-body); font-size: 0.9375rem;
+      border-radius: 2px;
+      transition: border-color 0.25s;
+    }
+    .form__input:focus, .form__textarea:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .form__textarea { resize: vertical; min-height: 140px; }
+    .form__hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+    .form__status {
+      font-size: 0.875rem; padding: 0.875rem 1rem;
+      border-radius: 2px; display: none;
+    }
+    .form__status.show { display: block; }
+    .form__status--success {
+      background: rgba(54, 224, 206, 0.1);
+      border: 1px solid rgba(54, 224, 206, 0.3);
+      color: var(--accent);
+    }
+    .form__status--error {
+      background: rgba(255, 178, 62, 0.08);
+      border: 1px solid rgba(255, 178, 62, 0.25);
+      color: var(--amber);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 2.5rem 0; border-top: 1px solid var(--line);
+      text-align: center;
+    }
+    .footer__copy {
+      font-family: var(--font-mono); font-size: 0.6875rem;
+      letter-spacing: 0.12em; color: var(--text-muted);
+    }
+    .footer__tagline {
+      font-family: var(--font-mono); font-size: 0.625rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); margin-top: 0.5rem; opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Naar inhoud</a>
+
+  <div class="bg-scene" aria-hidden="true"></div>
+  <svg class="bg-grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch"/></filter>
+    <rect width="100%" height="100%" filter="url(#grain)"/>
+  </svg>
+  <svg class="bg-horizon" aria-hidden="true" viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 180 Q360 160 720 170 T1440 165 L1440 200 L0 200 Z" fill="#0C1626"/>
+    <g opacity="0.9" transform="translate(680, 60)">
+      <line x1="0" y1="110" x2="0" y2="20" stroke="#8FA3BC" stroke-width="2"/>
+      <line x1="-40" y1="50" x2="40" y2="50" stroke="#8FA3BC" stroke-width="1.5"/>
+      <line x1="-30" y1="35" x2="30" y2="35" stroke="#8FA3BC" stroke-width="1.2"/>
+      <line x1="-20" y1="20" x2="20" y2="20" stroke="#8FA3BC" stroke-width="1"/>
+      <ellipse cx="0" cy="115" rx="6" ry="3" fill="#8FA3BC"/>
+    </g>
+    <g opacity="0.5" transform="translate(920, 75) scale(0.7)">
+      <line x1="0" y1="110" x2="0" y2="20" stroke="#8FA3BC" stroke-width="2"/>
+      <line x1="-40" y1="50" x2="40" y2="50" stroke="#8FA3BC" stroke-width="1.5"/>
+      <line x1="-30" y1="35" x2="30" y2="35" stroke="#8FA3BC" stroke-width="1.2"/>
+      <ellipse cx="0" cy="115" rx="6" ry="3" fill="#8FA3BC"/>
+    </g>
+  </svg>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">Nando <span>Breure</span></a>
+      <ul class="nav__links">
+        <li><a href="#profiel">Profiel</a></li>
+        <li><a href="#loopbaan">Loopbaan</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu openen" aria-expanded="false">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="0" y1="1" x2="18" y2="1"/><line x1="0" y1="7" x2="18" y2="7"/><line x1="0" y1="13" x2="18" y2="13"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <nav class="nav__mobile" id="navMobile" aria-label="Mobiel menu">
+    <a href="#profiel">Profiel</a>
+    <a href="#loopbaan">Loopbaan</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#kwalificaties">Kwalificaties</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <p class="eyebrow hero__reveal">
+              <span class="eyebrow__dot" aria-hidden="true"></span>
+              Beschikbaar voor freelance opdrachten · Goes, NL
+            </p>
+            <h1 class="hero__name hero__reveal">Nando Breure</h1>
+            <p class="hero__role hero__reveal">Ervaren Rigger &amp; Medior Banksman</p>
+            <p class="hero__tagline hero__reveal">Offshore Wind / Heavy Lifting / Maritime Logistics</p>
+            <div class="hero__actions hero__reveal">
+              <a href="#loopbaan" class="btn btn--primary">Bekijk mijn ervaring</a>
+              <a href="#contact" class="btn btn--ghost">Contacteer mij</a>
+            </div>
+          </div>
+
+          <div class="photo-frame">
+            <span class="photo-frame__bracket photo-frame__bracket--tl" aria-hidden="true"></span>
+            <span class="photo-frame__bracket photo-frame__bracket--tr" aria-hidden="true"></span>
+            <span class="photo-frame__bracket photo-frame__bracket--bl" aria-hidden="true"></span>
+            <span class="photo-frame__bracket photo-frame__bracket--br" aria-hidden="true"></span>
+            <div class="photo-frame__inner">
+              <!-- VERVANG src door echte foto van Nando in werkkleding -->
+              <img
+                class="photo-frame__placeholder"
+                src="assets/nando-placeholder.svg"
+                width="800"
+                height="1000"
+                alt="Foto van Nando Breure volgt"
+              >
+            </div>
+          </div>
+
+          <div class="stats hero__reveal">
+            <div class="stats__item">
+              <div class="stats__value">8+ Jaar ervaring</div>
+            </div>
+            <div class="stats__item">
+              <div class="stats__value">3 Sectoren</div>
+              <div class="stats__label">logistiek · scheepvaart · offshore</div>
+            </div>
+            <div class="stats__item">
+              <div class="stats__value">NL/EN Tweetalig</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVER MIJ -->
+    <section id="profiel">
+      <div class="container reveal">
+        <span class="section-label">01 — Profiel</span>
+        <h2 class="section-title">Over mij</h2>
+        <div class="about__grid">
+          <div class="about__text">
+            <p>Ervaren rigger en medior banksman met een brede achtergrond in logistiek, scheepvaart en offshore wind. Sterke teamspeler met een leergierige instelling en een bewezen staat van dienst in complexe offshore projecten.</p>
+            <p>Bekwaam in het veilig en efficiënt hijsen, transporteren en begeleiden van zware ladingen, met uitgebreide ervaring in offshore installatie, terminaloperaties en scheepsafhandeling. Veiligheid en heldere communicatie staan altijd voorop.</p>
+          </div>
+          <aside class="card">
+            <h3 class="card__title">Kerngegevens</h3>
+            <ul class="card__list">
+              <li>
+                <span class="card__list-label">Standplaats</span>
+                Goes, NL
+              </li>
+              <li>
+                <span class="card__list-label">E-mail</span>
+                <a href="mailto:nandobcontact@gmail.com">nandobcontact@gmail.com</a>
+              </li>
+              <li>
+                <span class="card__list-label">Telefoon</span>
+                <a href="tel:+31628292178">+31 (0)6 28292178</a>
+              </li>
+              <li>
+                <span class="card__list-label">Talen</span>
+                Nederlands · Engels
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- WERKERVARING -->
+    <section id="loopbaan">
+      <div class="container reveal">
+        <span class="section-label">02 — Loopbaan</span>
+        <h2 class="section-title">Werkervaring</h2>
+        <div class="timeline">
+          <article class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <p class="timeline__period">2024 — heden</p>
+            <h3 class="timeline__title">Freelance Rigger &amp; Banksman</h3>
+            <p class="timeline__org">Zelfstandig · offshore wind &amp; maritiem</p>
+            <ul class="timeline__bullets">
+              <li>Verantwoordelijk voor rigging- en banksman-activiteiten bij offshore infrastructuurprojecten.</li>
+              <li>Uitvoeren van complexe hijswerkzaamheden voor offshore installaties en baggerschepen.</li>
+              <li>Ondersteuning bij de (de)mobilisatie van offshore-installatievaartuigen.</li>
+              <li>Werken met zware machines: reachstackers, heftrucks, empty handlers en telehandlers.</li>
+            </ul>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <p class="timeline__period">2021 — 2024</p>
+            <h3 class="timeline__title">Freelance Rigger &amp; Terminal Operator</h3>
+            <p class="timeline__org">DEME Offshore Netherlands B.V.</p>
+            <ul class="timeline__bullets">
+              <li>Opereren van zware machines in offshore terminals.</li>
+              <li>Assisteren bij onderhoudsprocedures en hijswerkzaamheden.</li>
+              <li>Laden en lossen van schepen en logistieke ondersteuning bij offshore projecten.</li>
+            </ul>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__node" aria-hidden="true"></span>
+            <p class="timeline__period">2017 — 2021</p>
+            <h3 class="timeline__title">Allround Deckhand Binnenvaart</h3>
+            <p class="timeline__org">Jana Scheepvaart, VLB</p>
+            <ul class="timeline__bullets">
+              <li>Aanmeren, ontmeren en opereren van ondersteuningsvaartuigen binnen havengebieden.</li>
+              <li>Assisteren bij laad- en losactiviteiten en onderhoudswerkzaamheden aan boord.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VAARDIGHEDEN -->
+    <section id="expertise">
+      <div class="container reveal">
+        <span class="section-label">03 — Expertise</span>
+        <h2 class="section-title">Vaardigheden</h2>
+        <div class="skills__grid">
+          <div>
+            <h3 class="skills__group-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+              Technisch
+            </h3>
+            <div class="skills__tags">
+              <span class="skill-tag">Rigging &amp; hijswerk</span>
+              <span class="skill-tag">Banksman / seinen</span>
+              <span class="skill-tag">Zware machines</span>
+              <span class="skill-tag">Terminaloperaties</span>
+              <span class="skill-tag">Offshore installatie</span>
+              <span class="skill-tag">Laden &amp; lossen</span>
+              <span class="skill-tag">(De)mobilisatie</span>
+              <span class="skill-tag">Veilig werken</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="skills__group-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              Persoonlijk
+            </h3>
+            <div class="skills__tags">
+              <span class="skill-tag">Uitstekende teamspeler</span>
+              <span class="skill-tag">Probleemoplossend</span>
+              <span class="skill-tag">Out-of-the-box denken</span>
+              <span class="skill-tag">Communicatief sterk</span>
+              <span class="skill-tag">Sociaal &amp; open-minded</span>
+              <span class="skill-tag">Flexibel &amp; leergierig</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATEN -->
+    <section id="kwalificaties">
+      <div class="container reveal">
+        <span class="section-label">04 — Kwalificaties</span>
+        <h2 class="section-title">Certificaten</h2>
+        <p class="certs__intro">Plaatshouders — vervang door Nando's actuele certificaten</p>
+        <!-- VERVANG: voeg hier certificaat-scans en namen toe -->
+        <div class="certs__grid">
+          <div class="cert-card"><div class="cert-card__name">GWO Basic Safety</div><div class="cert-card__placeholder">Placeholder</div></div>
+          <div class="cert-card"><div class="cert-card__name">VCA</div><div class="cert-card__placeholder">Placeholder</div></div>
+          <div class="cert-card"><div class="cert-card__name">Banksman &amp; Slinger</div><div class="cert-card__placeholder">Placeholder</div></div>
+          <div class="cert-card"><div class="cert-card__name">Sea Survival</div><div class="cert-card__placeholder">Placeholder</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPLEIDING + TALEN -->
+    <section id="opleiding">
+      <div class="container reveal">
+        <div class="edu-lang__grid">
+          <div>
+            <span class="section-label">Opleiding</span>
+            <h2 class="section-title" style="margin-bottom:1.5rem">Opleiding</h2>
+            <div class="edu-item">
+              <div class="edu-item__school">Zeevaartschool Vlissingen — Deckhand Binnenvaart</div>
+              <div class="edu-item__detail">2017</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-item__school">Ostrea Lyceum Goes — Middelbare school</div>
+              <div class="edu-item__detail">2012–2016</div>
+            </div>
+          </div>
+          <div>
+            <span class="section-label">Talen</span>
+            <h2 class="section-title" style="margin-bottom:1.5rem">Talen</h2>
+            <div class="lang-item">
+              <div class="lang-item__header">
+                <span class="lang-item__name">Nederlands</span>
+                <span class="lang-item__level">Moedertaal · 100%</span>
+              </div>
+              <div class="lang-bar"><div class="lang-bar__fill" data-pct="100" style="--pct:100%"></div></div>
+            </div>
+            <div class="lang-item">
+              <div class="lang-item__header">
+                <span class="lang-item__name">Engels</span>
+                <span class="lang-item__level">Vloeiend · ~88%</span>
+              </div>
+              <div class="lang-bar"><div class="lang-bar__fill" data-pct="88" style="--pct:88%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container reveal">
+        <span class="section-label">07 — Aan de slag</span>
+        <h2 class="section-title">Contact</h2>
+        <div class="contact__grid">
+          <div>
+            <div class="contact-cards">
+              <a href="mailto:nandobcontact@gmail.com" class="contact-card">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                <div>
+                  <div class="contact-card__label">E-mail</div>
+                  <div class="contact-card__value">nandobcontact@gmail.com</div>
+                </div>
+              </a>
+              <a href="tel:+31628292178" class="contact-card">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <div>
+                  <div class="contact-card__label">Telefoon</div>
+                  <div class="contact-card__value">+31 (0)6 28292178</div>
+                </div>
+              </a>
+              <div class="contact-card">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <div class="contact-card__label">Standplaats</div>
+                  <div class="contact-card__value">Goes, NL</div>
+                </div>
+              </div>
+            </div>
+            <p class="contact__ref">Referenties beschikbaar op aanvraag.</p>
+          </div>
+
+          <form class="form" id="contactForm" novalidate>
+            <input type="hidden" name="access_key" value="VERVANG_DOOR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="Nieuw bericht via nando.breure.ai">
+            <input type="checkbox" name="botcheck" class="form__hp" tabindex="-1" autocomplete="off">
+            <div class="form__group">
+              <label class="form__label" for="name">Naam</label>
+              <input class="form__input" type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">E-mail</label>
+              <input class="form__input" type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="message">Bericht</label>
+              <textarea class="form__textarea" id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Verstuur bericht</button>
+            <div class="form__status form__status--success" id="formSuccess" role="status">Bedankt! Je bericht is verstuurd. Ik neem zo snel mogelijk contact op.</div>
+            <div class="form__status form__status--error" id="formError" role="alert">Er ging iets mis. Probeer het opnieuw of mail direct naar <a href="mailto:nandobcontact@gmail.com" style="color:inherit">nandobcontact@gmail.com</a>.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__copy">&copy; <span id="year"></span> Nando Breure — Rigger &amp; Banksman</p>
+      <p class="footer__tagline">Offshore Wind · Heavy Lifting · Maritime Logistics</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      var nav = document.getElementById('nav');
+      var toggle = document.getElementById('navToggle');
+      var mobile = document.getElementById('navMobile');
+
+      window.addEventListener('scroll', function () {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      toggle.addEventListener('click', function () {
+        var open = mobile.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
+      });
+
+      mobile.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobile.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!reduced) {
+        var reveals = document.querySelectorAll('.reveal');
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function (el) { observer.observe(el); });
+
+        var langBars = document.querySelectorAll('.lang-bar__fill');
+        var langObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');
+              langObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        langBars.forEach(function (bar) { langObserver.observe(bar); });
+      } else {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+        document.querySelectorAll('.lang-bar__fill').forEach(function (bar) { bar.classList.add('animate'); });
+      }
+
+      var form = document.getElementById('contactForm');
+      var successEl = document.getElementById('formSuccess');
+      var errorEl = document.getElementById('formError');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        successEl.classList.remove('show');
+        errorEl.classList.remove('show');
+
+        var btn = form.querySelector('[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Versturen…';
+
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        })
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data.success) {
+              successEl.classList.add('show');
+              form.reset();
+            } else {
+              errorEl.classList.add('show');
+            }
+          })
+          .catch(function () { errorEl.classList.add('show'); })
+          .finally(function () {
+            btn.disabled = false;
+            btn.textContent = 'Verstuur bericht';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

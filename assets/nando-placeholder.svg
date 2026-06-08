@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Foto van Nando Breure volgt">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#11203A"/>
+      <stop offset="0.55" stop-color="#0C1626"/>
+      <stop offset="1" stop-color="#05090F"/>
+    </linearGradient>
+    <linearGradient id="figure" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2C496E"/>
+      <stop offset="1" stop-color="#16263E"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.32" r="0.55">
+      <stop offset="0" stop-color="#36E0CE" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#36E0CE" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft"><feGaussianBlur stdDeviation="1.2"/></filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg)"/>
+  <rect width="800" height="1000" fill="url(#glow)"/>
+
+  <g stroke="#8FA3BC" stroke-opacity="0.06" stroke-width="1">
+    <g>
+      <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="200" x2="800" y2="200"/>
+      <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="400" x2="800" y2="400"/>
+      <line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="600" x2="800" y2="600"/>
+      <line x1="0" y1="700" x2="800" y2="700"/><line x1="0" y1="800" x2="800" y2="800"/>
+      <line x1="0" y1="900" x2="800" y2="900"/>
+    </g>
+    <g>
+      <line x1="100" y1="0" x2="100" y2="1000"/><line x1="200" y1="0" x2="200" y2="1000"/>
+      <line x1="300" y1="0" x2="300" y2="1000"/><line x1="400" y1="0" x2="400" y2="1000"/>
+      <line x1="500" y1="0" x2="500" y2="1000"/><line x1="600" y1="0" x2="600" y2="1000"/>
+      <line x1="700" y1="0" x2="700" y2="1000"/>
+    </g>
+  </g>
+
+  <g stroke="#8FA3BC" stroke-opacity="0.16" stroke-width="3" fill="none" stroke-linecap="round">
+    <line x1="650" y1="340" x2="650" y2="150"/>
+    <line x1="650" y1="150" x2="650" y2="60"/>
+    <line x1="650" y1="150" x2="730" y2="195"/>
+    <line x1="650" y1="150" x2="570" y2="195"/>
+    <circle cx="650" cy="150" r="6" fill="#36E0CE" stroke="none" fill-opacity="0.5"/>
+  </g>
+
+  <g>
+    <path d="M180 1000
+             C 180 820, 250 720, 400 720
+             C 550 720, 620 820, 620 1000 Z"
+          fill="url(#figure)"/>
+    <rect x="360" y="600" width="80" height="150" rx="22" fill="url(#figure)"/>
+    <ellipse cx="400" cy="540" rx="88" ry="100" fill="url(#figure)"/>
+    <path d="M300 470
+             C 300 392, 350 348, 400 348
+             C 450 348, 500 392, 500 470 Z"
+          fill="#243a56"/>
+    <path d="M392 350 L392 470 M408 350 L408 470" stroke="#1a2c45" stroke-width="6" opacity="0.7"/>
+    <ellipse cx="400" cy="472" rx="124" ry="20" fill="#1f3350"/>
+    <path d="M300 470 C 300 392, 350 348, 400 348"
+          fill="none" stroke="#36E0CE" stroke-width="3" stroke-opacity="0.55" filter="url(#soft)"/>
+    <path d="M312 540 C 318 460, 350 720, 200 940"
+          fill="none" stroke="#36E0CE" stroke-width="2.5" stroke-opacity="0.30" filter="url(#soft)"/>
+  </g>
+
+  <g stroke="#36E0CE" stroke-width="3" fill="none" stroke-opacity="0.7">
+    <path d="M40 80 L40 40 L80 40"/>
+    <path d="M760 80 L760 40 L720 40"/>
+    <path d="M40 920 L40 960 L80 960"/>
+    <path d="M760 920 L760 960 L720 960"/>
+  </g>
+
+  <text x="400" y="930" text-anchor="middle"
+        font-family="'IBM Plex Mono', ui-monospace, monospace"
+        font-size="22" letter-spacing="5" fill="#8FA3BC" fill-opacity="0.85">FOTO VOLGT</text>
+  <text x="400" y="958" text-anchor="middle"
+        font-family="'IBM Plex Mono', ui-monospace, monospace"
+        font-size="15" letter-spacing="6" fill="#36E0CE" fill-opacity="0.7">NANDO BREURE</text>
+</svg>
